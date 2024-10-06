@@ -12,7 +12,7 @@ To join the discussion, create a GutHub account if you don’t already have one.
 
 Latest release source code and binaries: <https://github.com/openmpp/main/releases/latest>
 
-## Contact us
+**Contact us**
 
 Please visit our [wiki](https://ompp.sourceforge.io/wiki/) for more information.
 
