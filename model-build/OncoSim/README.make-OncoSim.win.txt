@@ -1,6 +1,6 @@
-## Using openmpp-build image to build and OncoSim model variants
+## Using openmpp-build image to build and run OncoSim model variants
 
-To build and (optionally) openM++ model do:
+To build and (optionally) OncoSim model do:
 
 docker run .... openmpp/openmpp-build:windows-ltsc2025 make-OncoSim
 
