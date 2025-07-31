@@ -11,15 +11,29 @@ docker run \
   -e OMPP_USER=build -e OMPP_GROUP=build -e OMPP_UID=$UID -e OMPP_GID=`id -g` \
   -e OM_ROOT=ompp \
   -e MODEL_DIR=ompp/models/OncoSim \
+  -e OMC_CODE_PAGE=ISO-8859-15 \
   openmpp/openmpp-build:debian \
   ./make-OncoSim
 
 docker run \
   -v $HOME/stable-debian/build:/home/build \
   -e OMPP_USER=build -e OMPP_GROUP=build -e OMPP_UID=$UID -e OMPP_GID=`id -g` \
-  -e OM_ROOT=openmpp_win_20250601 \
+  -e OM_ROOT=openmpp_debian_20250601 \
   -e MODEL_NAME=OncoSim \
+  -e OMC_CODE_PAGE=ISO-8859-15 \
   -e MODEL_INI=my/OncoSim-test.ini \
+  openmpp/openmpp-build:debian \
+  ./make-OncoSim
+
+docker run \
+  -v $HOME/stable-debian/onco:/home/build \
+  -e OMPP_USER=build -e OMPP_GROUP=build -e OMPP_UID=$UID -e OMPP_GID=`id -g` \
+  -e OM_ROOT=openmpp_debian_mpi_20250601 \
+  -e MODEL_DIR=OncoSim \
+  -e OM_MSG_USE=MPI \
+  -e MODEL_DOC_DISABLE=0 \
+  -e OMC_CODE_PAGE=ISO-8859-15 \
+  -e ONCOSIM_VARIANT=lung \
   openmpp/openmpp-build:debian \
   ./make-OncoSim
 
@@ -29,6 +43,7 @@ docker run \
   -e OM_ROOT=ompp \
   -e MODEL_NAME=OncoSim \
   -e MODEL_DIR=my/OncoSim \
+  -e OMC_CODE_PAGE=ISO-8859-15 \
   -e MODEL_GIT_URL=https://gitlab.com/my/OncoSim.git
   -e MODEL_GIT_TAG=v1.2.3
   ./make-OncoSim
